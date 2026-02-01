@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Apple body -->
+  <circle cx="256" cy="280" r="140" fill="#FF6B35"/>
+  
+  <!-- Leaves -->
+  <ellipse cx="280" cy="140" rx="22" ry="38" fill="#6BAA46" transform="rotate(-35 280 140)"/>
+  <ellipse cx="228" cy="135" rx="22" ry="38" fill="#7FBE4A" transform="rotate(35 228 135)"/>
+  
+  <!-- Leaf stem -->
+  <line x1="256" y1="145" x2="256" y2="175" stroke="#6BAA46" stroke-width="4" stroke-linecap="round"/>
+</svg>
