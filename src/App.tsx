@@ -9,6 +9,8 @@ import { SiteSettingsProvider } from "@/hooks/useSiteSettings";
 import { LanguageProvider } from "@/hooks/useLanguage";
 import PWAInstallPrompt from "@/components/PWAInstallPrompt";
 import EmergencyButton from "@/components/EmergencyButton";
+
+// Client Pages
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Shop from "./pages/Shop";
@@ -21,8 +23,18 @@ import Wishlist from "./pages/Wishlist";
 import Account from "./pages/Account";
 import Settings from "./pages/Settings";
 import Install from "./pages/Install";
-import AdminDashboard from "./pages/admin/AdminDashboard";
 import NotFound from "./pages/NotFound";
+
+// Admin Module
+import AdminLayout from "./admin/layouts/AdminLayout";
+import AdminLogin from "./admin/pages/AdminLogin";
+import Dashboard from "./admin/pages/Dashboard";
+import Products from "./admin/pages/Products";
+import Categories from "./admin/pages/Categories";
+import AdminOrders from "./admin/pages/Orders";
+import AdminUsers from "./admin/pages/AdminUsers";
+import Analytics from "./admin/pages/Analytics";
+import AdminSettings from "./admin/pages/AdminSettings";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +49,7 @@ const App = () => (
               <Sonner />
               <BrowserRouter>
                 <Routes>
+                  {/* Client Routes */}
                   <Route path="/" element={<Index />} />
                   <Route path="/auth" element={<Auth />} />
                   <Route path="/shop" element={<Shop />} />
@@ -49,7 +62,19 @@ const App = () => (
                   <Route path="/account" element={<Account />} />
                   <Route path="/settings" element={<Settings />} />
                   <Route path="/install" element={<Install />} />
-                  <Route path="/admin" element={<AdminDashboard />} />
+                  
+                  {/* Admin Routes - Isolated Module */}
+                  <Route path="/admin/login" element={<AdminLogin />} />
+                  <Route path="/admin" element={<AdminLayout />}>
+                    <Route index element={<Dashboard />} />
+                    <Route path="products" element={<Products />} />
+                    <Route path="categories" element={<Categories />} />
+                    <Route path="orders" element={<AdminOrders />} />
+                    <Route path="users" element={<AdminUsers />} />
+                    <Route path="analytics" element={<Analytics />} />
+                    <Route path="settings" element={<AdminSettings />} />
+                  </Route>
+                  
                   <Route path="*" element={<NotFound />} />
                 </Routes>
                 <PWAInstallPrompt />
