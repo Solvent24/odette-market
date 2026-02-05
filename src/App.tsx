@@ -35,6 +35,9 @@ import AdminOrders from "./admin/pages/Orders";
 import AdminUsers from "./admin/pages/AdminUsers";
 import Analytics from "./admin/pages/Analytics";
 import AdminSettings from "./admin/pages/AdminSettings";
+ import AdminRegister from "./admin/pages/AdminRegister";
+ import AdminPending from "./admin/pages/AdminPending";
+ import AdminRequests from "./admin/pages/AdminRequests";
 
 const queryClient = new QueryClient();
 
@@ -65,6 +68,8 @@ const App = () => (
                   
                   {/* Admin Routes - Isolated Module */}
                   <Route path="/admin/login" element={<AdminLogin />} />
+                   <Route path="/admin/register" element={<AdminRegister />} />
+                   <Route path="/admin/pending" element={<AdminPending />} />
                   <Route path="/admin" element={<AdminLayout />}>
                     <Route index element={<Dashboard />} />
                     <Route path="products" element={<Products />} />
@@ -73,6 +78,7 @@ const App = () => (
                     <Route path="users" element={<AdminUsers />} />
                     <Route path="analytics" element={<Analytics />} />
                     <Route path="settings" element={<AdminSettings />} />
+                     <Route path="requests" element={<AdminRequests />} />
                   </Route>
                   
                   <Route path="*" element={<NotFound />} />

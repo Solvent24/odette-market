@@ -25,7 +25,8 @@ import {
   Settings,
   Users,
   BarChart3,
-  Home
+   Home,
+   UserCheck
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -43,6 +44,7 @@ const AdminTopBar = () => {
     { path: "/admin/users", icon: Users, label: language === "rw" ? "Abakoresha" : "Users" },
     { path: "/admin/analytics", icon: BarChart3, label: language === "rw" ? "Imibare" : "Analytics" },
     { path: "/admin/settings", icon: Settings, label: language === "rw" ? "Igenamiterere" : "Settings" },
+     { path: "/admin/requests", icon: UserCheck, label: language === "rw" ? "Ubusabe bw'Admin" : "Admin Requests" },
   ];
 
   return (
