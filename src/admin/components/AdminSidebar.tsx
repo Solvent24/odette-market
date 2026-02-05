@@ -8,7 +8,8 @@ import {
   Settings, 
   Users,
   BarChart3,
-  Home
+   Home,
+   UserCheck
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -52,6 +53,11 @@ const AdminSidebar = () => {
       icon: Settings,
       label: language === "rw" ? "Igenamiterere" : "Settings",
     },
+     {
+       path: "/admin/requests",
+       icon: UserCheck,
+       label: language === "rw" ? "Ubusabe bw'Admin" : "Admin Requests",
+     },
   ];
 
   return (

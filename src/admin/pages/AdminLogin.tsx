@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Lock, Mail } from "lucide-react";
+ import { Lock, Mail, UserPlus } from "lucide-react";
 
 const AdminLogin = () => {
   const { signIn, user, isAdmin, isLoading } = useAuth();
@@ -50,6 +50,9 @@ const AdminLogin = () => {
     password: language === "rw" ? "Ijambo ry'ibanga" : "Password",
     login: language === "rw" ? "Injira" : "Login",
     loggingIn: language === "rw" ? "Kwinjira..." : "Logging in...",
+     noAccount: language === "rw" ? "Nta konti ufite?" : "Don't have an account?",
+     register: language === "rw" ? "Kwiyandikisha" : "Register",
+     backToStore: language === "rw" ? "Subira mu iduka" : "Back to Store",
   };
 
   if (isLoading) {
@@ -106,6 +109,25 @@ const AdminLogin = () => {
               {loading ? t.loggingIn : t.login}
             </Button>
           </form>
+
+           <div className="mt-6 text-center space-y-3">
+             <div>
+               <p className="text-sm text-muted-foreground">{t.noAccount}</p>
+               <Link 
+                 to="/admin/register" 
+                 className="text-sm text-primary hover:underline inline-flex items-center gap-1 mt-1"
+               >
+                 <UserPlus className="h-3 w-3" />
+                 {t.register}
+               </Link>
+             </div>
+             <Link 
+               to="/" 
+               className="text-sm text-muted-foreground hover:text-foreground"
+             >
+               {t.backToStore}
+             </Link>
+           </div>
         </CardContent>
       </Card>
     </div>
